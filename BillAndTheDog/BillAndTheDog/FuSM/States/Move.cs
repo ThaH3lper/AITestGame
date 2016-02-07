@@ -20,17 +20,18 @@ namespace BillAndTheDog.FuSM
         public override void Update(float delta)
         {
             machine.UpdateMachine(delta);
+            controller.SetSpeed(activationLevel);
         }
 
         public override float CalculateActivationLevel()
         {
             //Fix This!
-            if(controller.distanceToPlayer >= 10)
+            if(controller.distanceToPlayer < 300f)
             {
-                activationLevel = 1;
+                activationLevel = controller.distanceToPlayer / 300f;
             }
             else
-                activationLevel = 0;
+                activationLevel = 1;
             return activationLevel;
         }
     }

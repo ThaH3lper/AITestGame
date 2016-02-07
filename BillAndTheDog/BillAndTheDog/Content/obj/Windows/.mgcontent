@@ -4,8 +4,8 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Programs/Google Drive/MAH Skolarbete/AI/BillAndTheDog/BillAndTheDog/Content/Pixel.png</File>
-    <File>D:/Programs/Google Drive/MAH Skolarbete/AI/BillAndTheDog/BillAndTheDog/Content/Font.spritefont</File>
-    <File>D:/Programs/Google Drive/MAH Skolarbete/AI/BillAndTheDog/BillAndTheDog/Content/Sheet.png</File>
+    <File>D:/Documents and projects/Github/AITestGame/BillAndTheDog/BillAndTheDog/Content/Pixel.png</File>
+    <File>D:/Documents and projects/Github/AITestGame/BillAndTheDog/BillAndTheDog/Content/Font.spritefont</File>
+    <File>D:/Documents and projects/Github/AITestGame/BillAndTheDog/BillAndTheDog/Content/Sheet.png</File>
   </SourceFiles>
 </SourceFileCollection>

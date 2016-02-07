@@ -8,7 +8,7 @@ namespace BillAndTheDog.FuSM
     class Fire : FuSMState
     {
         private float maxRadius = 300;
-        float time, timeInterval = 1f;
+        float time, timeInterval = 0.7f;
 
         public Fire(AIController controller) : base(controller)
         {

@@ -7,12 +7,13 @@ namespace BillAndTheDog
     {
         protected Vector2 location;
         protected Vector2 velocity;
-        protected float speed;
+        protected float speed, defaultSpeed;
         protected HealthBar healthBar;
 
         public Entity(SimulationWorld world, Vector2 location) : base(world, new Rectangle(0, 0, 32, 32), new Rectangle(0, 0, 32, 32), Globals.sheet)
         {
             speed = 200;
+            defaultSpeed = speed;
             healthBar = new HealthBar(100, this);
             recDraw.X = Globals.random.Next(4) * 32;
             this.location = location;
@@ -31,8 +32,15 @@ namespace BillAndTheDog
             }
         }
 
+        public void SetSpeed(float percentage)
+        {
+            speed = defaultSpeed * percentage;
+        }
+
         public void Move(Vector2 direction)
         {
+            if(direction.X != 0 && direction.Y != 0)
+                direction.Normalize();
             velocity = direction;
         }
 
