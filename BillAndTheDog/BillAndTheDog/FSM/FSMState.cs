@@ -5,11 +5,11 @@ namespace BillAndTheDog.FSM
 {
     class FSMState
     {
-        protected AIController controller;
+        protected FAIController controller;
         private FSMEnum stateType;
         protected FSMEnum nextState;
 
-        public FSMState(FSMEnum stateType, AIController controller)
+        public FSMState(FSMEnum stateType, FAIController controller)
         {
             this.controller = controller;
             this.stateType = stateType;

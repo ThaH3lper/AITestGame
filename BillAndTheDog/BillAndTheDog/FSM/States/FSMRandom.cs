@@ -10,7 +10,7 @@ namespace BillAndTheDog.FSM.States
     class FSMRandom : FSMState
     {
         Vector2 targetPos;
-        public FSMRandom(AIController controller) : base(FSMEnum.Random, controller)
+        public FSMRandom(FAIController controller) : base(FSMEnum.Random, controller)
         {
             targetPos = new Vector2(Globals.random.Next(1280), Globals.random.Next(720));
         }

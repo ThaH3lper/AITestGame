@@ -1,6 +1,7 @@
 ﻿using BillAndTheDog.FuSM;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 
@@ -36,8 +37,6 @@ namespace BillAndTheDog
 
             player = new Player(this, new Vector2(640, 360));
             AddGameObject(player);
-            for (int i = 0; i < 1; i++)
-                AddGameObject(new AIController(this, new Vector2(50, 50)));
         }
 
         public void AddGameObject(GameObject o)
@@ -64,6 +63,11 @@ namespace BillAndTheDog
             if (Globals.random.NextDouble() <= 0.01 && healths.Count < 3)
                 AddGameObject(new Health(this, new Vector2(Globals.random.Next(1280), Globals.random.Next(720))));
             //-------
+
+            if(KeyMouseReader.KeyClick(Keys.Q))
+                AddGameObject(new DAIController(this, new Vector2(50, 50)));
+            if (KeyMouseReader.KeyClick(Keys.E))
+                AddGameObject(new FAIController(this, new Vector2(50, 50)));
 
             foreach (GameObject o in addObjects)
                 gameObjects.Add(o);

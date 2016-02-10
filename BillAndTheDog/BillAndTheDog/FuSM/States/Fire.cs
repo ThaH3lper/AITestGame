@@ -10,7 +10,7 @@ namespace BillAndTheDog.FuSM
         private float maxRadius = 300;
         float time, timeInterval = 0.7f;
 
-        public Fire(AIController controller) : base(controller)
+        public Fire(FAIController controller) : base(controller)
         {
             time = -0.1f;
         }

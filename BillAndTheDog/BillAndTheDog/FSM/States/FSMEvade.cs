@@ -10,7 +10,7 @@ namespace BillAndTheDog.FSM.States
     class FSMEvade : FSMState
     {
 
-        public FSMEvade(AIController controller) : base(FSMEnum.Evade, controller)
+        public FSMEvade(FAIController controller) : base(FSMEnum.Evade, controller)
         {
 
         }

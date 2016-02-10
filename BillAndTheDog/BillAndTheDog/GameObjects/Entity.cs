@@ -44,6 +44,11 @@ namespace BillAndTheDog
             velocity = direction;
         }
 
+        public void Stop()
+        {
+            velocity = new Vector2(0, 0);
+        }
+
         public void Talk(string msg, Color color)
         {
             world.SayMsg(msg, this, color);

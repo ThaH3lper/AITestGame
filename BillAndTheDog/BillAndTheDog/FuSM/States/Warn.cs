@@ -11,7 +11,7 @@ namespace BillAndTheDog.FuSM
         private float peakRadius = 320, smoothValue = 70;
         float time, timeInterval = 1f;
 
-        public Warn(AIController controller) : base(controller)
+        public Warn(FAIController controller) : base(controller)
         {
             time = -0.1f;
         }

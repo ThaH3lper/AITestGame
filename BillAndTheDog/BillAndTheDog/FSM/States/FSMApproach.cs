@@ -10,7 +10,7 @@ namespace BillAndTheDog.FSM.States
     class FSMApproach : FSMState
     {
 
-        public FSMApproach(AIController controller) : base(FSMEnum.Approach, controller)
+        public FSMApproach(FAIController controller) : base(FSMEnum.Approach, controller)
         {
 
         }

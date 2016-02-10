@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BillAndTheDog.FuSM
 {
-    class AIController : Ai
+    class FAIController : Ai
     {
         public float healthPercentage;
         public float distanceToHealth;
@@ -18,18 +18,12 @@ namespace BillAndTheDog.FuSM
 
         FuSMMachine machine;
 
-        //debug
-        Vector2 targetPos;
-
-        public AIController(SimulationWorld world, Vector2 location) : base(world, location)
+        public FAIController(SimulationWorld world, Vector2 location) : base(world, location)
         {
             machine = new FuSMMachine();
             machine.AddState(new Fire(this));
             machine.AddState(new Warn(this));
             machine.AddState(new Move(this));
-
-            //Debug
-            targetPos = new Vector2(Globals.random.Next(1280), Globals.random.Next(720));
         }
 
         public override void Update(float delta)
@@ -39,12 +33,6 @@ namespace BillAndTheDog.FuSM
             UpdatePerceptions();
             machine.Update(delta);
 
-            //debug
-            //if (MoveTo(targetPos))
-            //{
-            //    targetPos = new Vector2(Globals.random.Next(1280), Globals.random.Next(720));
-            //    Talk(Globals.GetRandomWarning(), Color.Red);
-            //}
         }
 
         public void UpdatePerceptions()

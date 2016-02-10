@@ -7,10 +7,10 @@ namespace BillAndTheDog.FuSM
 {
     class FuSMState
     {
-        protected AIController controller;
+        protected FAIController controller;
         protected float activationLevel;
 
-        public FuSMState(AIController controller)
+        public FuSMState(FAIController controller)
         {
             this.controller = controller;
             activationLevel = 0;

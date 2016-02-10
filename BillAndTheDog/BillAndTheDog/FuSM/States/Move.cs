@@ -8,7 +8,7 @@ namespace BillAndTheDog.FuSM
     {
         FSMMachine machine;
 
-        public Move(AIController controller) : base(controller)
+        public Move(FAIController controller) : base(controller)
         {
             machine = new FSMMachine();
             FSMRandom random = new FSMRandom(controller);
@@ -17,6 +17,7 @@ namespace BillAndTheDog.FuSM
             machine.AddState(new FSMApproach(controller));
             machine.AddState(new FSMEvade(controller));
         }
+
         public override void Update(float delta)
         {
             machine.UpdateMachine(delta);
