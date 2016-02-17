@@ -1,6 +1,7 @@
 ﻿using BillAndTheDog.FSM;
 using BillAndTheDog.FSM.States;
 using Microsoft.Xna.Framework;
+using System;
 
 namespace BillAndTheDog.FuSM
 {
@@ -33,6 +34,8 @@ namespace BillAndTheDog.FuSM
             }
             else
                 activationLevel = 1;
+
+            controller.SetDebugText(1, "Move: " + Math.Round(activationLevel, 2));
             return activationLevel;
         }
     }

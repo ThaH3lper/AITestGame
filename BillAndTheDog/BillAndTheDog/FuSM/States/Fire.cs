@@ -33,6 +33,8 @@ namespace BillAndTheDog.FuSM
             }
             else
                 activationLevel = 0;
+
+            controller.SetDebugText(0, "Fire: " + Math.Round(activationLevel, 2));
             return activationLevel;
         }
     }

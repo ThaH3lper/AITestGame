@@ -22,7 +22,7 @@ namespace BillAndTheDog
             warnings = new string[] { "Go away!", "I'll shoot you!", "Not one more step", "Go back!", "Halt!", "Stop right there!"};
         }
 
-        public static Vector2 GetWidthOfText(string s){ return font.MeasureString(s); }
+        public static Vector2 GetTextSize(string s){ return font.MeasureString(s); }
 
         public static string GetRandomWarning(){ return warnings[random.Next(warnings.Length)]; }
     }

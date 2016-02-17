@@ -18,7 +18,7 @@ namespace BillAndTheDog
             this.entity = entity;
 
             opacity = 255;
-            Offset = new Vector2(-Globals.GetWidthOfText(msg).X / 2, -entity.GetRecHit().Height/2 - Globals.GetWidthOfText(msg).Y);
+            Offset = new Vector2(-Globals.GetTextSize(msg).X / 2, -entity.GetRecHit().Height/2 - Globals.GetTextSize(msg).Y);
         }
 
         public void Update(float delta)

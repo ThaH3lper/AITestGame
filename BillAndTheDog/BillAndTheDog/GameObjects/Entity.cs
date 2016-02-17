@@ -10,6 +10,8 @@ namespace BillAndTheDog
         protected float speed, defaultSpeed;
         protected HealthBar healthBar;
 
+        protected string[] debugArray;
+
         public Entity(SimulationWorld world, Vector2 location) : base(world, new Rectangle(0, 0, 32, 32), new Rectangle(0, 0, 32, 32), Globals.sheet)
         {
             speed = 200;
@@ -17,6 +19,8 @@ namespace BillAndTheDog
             healthBar = new HealthBar(100, this);
             recDraw.X = Globals.random.Next(4) * 32;
             this.location = location;
+
+            debugArray = new string[5];
         }
 
         public override void Update(float delta)
@@ -54,6 +58,11 @@ namespace BillAndTheDog
             world.SayMsg(msg, this, color);
         }
 
+        public void SetDebugText(int index, string text)
+        {
+            debugArray[index] = text;
+        }    
+
         public void FireAt(Vector2 position)
         {
             Vector2 direction = position - location;
@@ -72,6 +81,16 @@ namespace BillAndTheDog
         {
             base.Draw(spriteBatch);
             healthBar.Draw(spriteBatch);
+
+            //draw debug Text
+            for (int i = 0; i < debugArray.Length; i++)
+            {
+                if (debugArray[i] != null)
+                {
+                    Vector2 temp = Globals.GetTextSize(debugArray[i]);
+                    spriteBatch.DrawString(Globals.font, debugArray[i], location + new Vector2(-temp.X/2, i * 15 + temp.Y + 7), Color.Black);
+                }
+            }
         }
     }
 }

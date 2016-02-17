@@ -29,6 +29,7 @@ namespace BillAndTheDog.FSM
         public virtual void Update(float delta) { }
 
         public virtual FSMEnum CheckTransitions() {
+            controller.SetDebugText(3, "FSM State: " + nextState);
             return nextState;
         }
     }
