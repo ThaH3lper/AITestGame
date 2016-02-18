@@ -8,19 +8,26 @@ namespace BillAndTheDog.FuSM
 {
     class FAIController : Ai
     {
-        public float healthPercentage;
-        public float distanceToHealth;
-        public Vector2 nearestHealth;
+        public float healthPercentage;              //Health of entity in precentage.
+        public float distanceToHealth;              //Distance to health, -1 if there is no health.
+        public Vector2 nearestHealth;               //Position where the nearest health is.
 
-        public float playerHealthPercentage;
-        public float distanceToPlayer;
-        public Vector2 playerPosition;
+        public float playerHealthPercentage;        //Player's health in percentage.
+        public float distanceToPlayer;              //The distance to the player.
+        public Vector2 playerPosition;              //Position where the nearest health is.
 
-        FuSMMachine machine;
+        private FuSMMachine machine;                //The FuSM Machine.
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="world">The world the entity lives in.</param>
+        /// <param name="location">The location we want to spawn the entity at.</param>
         public FAIController(SimulationWorld world, Vector2 location) : base(world, location)
         {
             machine = new FuSMMachine();
+
+            //Add states to the FuSM Machine
             machine.AddState(new Fire(this));
             machine.AddState(new Warn(this));
             machine.AddState(new Move(this));
@@ -35,6 +42,9 @@ namespace BillAndTheDog.FuSM
 
         }
 
+        /// <summary>
+        /// Updates all the values to calculate in the FuSM and FSM
+        /// </summary>
         public void UpdatePerceptions()
         {
             healthPercentage = GetHealthPercentage();

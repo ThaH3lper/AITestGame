@@ -11,6 +11,10 @@ namespace BillAndTheDog
         public static Random random;
         private static string[] warnings;
 
+        public static int ScreenWidth = 1280, ScreenHeight = 720;
+
+        public static bool debug = true;
+
         public static void Load(Game1 game)
         {
             pixel = game.Content.Load<Texture2D>("Pixel");

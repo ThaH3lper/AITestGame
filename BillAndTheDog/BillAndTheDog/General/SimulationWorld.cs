@@ -64,10 +64,12 @@ namespace BillAndTheDog
                 AddGameObject(new Health(this, new Vector2(Globals.random.Next(1280), Globals.random.Next(720))));
             //-------
 
-            if(KeyMouseReader.KeyClick(Keys.Q))
-                AddGameObject(new DAIController(this, new Vector2(50, 50)));
-            if (KeyMouseReader.KeyClick(Keys.E))
-                AddGameObject(new FAIController(this, new Vector2(50, 50)));
+            if(KeyMouseReader.KeyClick(Keys.D1))
+                AddGameObject(new DAIController(this, new Vector2(Globals.random.Next(Globals.ScreenWidth), Globals.random.Next(Globals.ScreenHeight))));
+            if (KeyMouseReader.KeyClick(Keys.D2))
+                AddGameObject(new FAIController(this, new Vector2(Globals.random.Next(Globals.ScreenWidth), Globals.random.Next(Globals.ScreenHeight))));
+            if (KeyMouseReader.KeyClick(Keys.D3))
+                Globals.debug = (!Globals.debug);
 
             foreach (GameObject o in addObjects)
                 gameObjects.Add(o);

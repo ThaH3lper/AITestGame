@@ -26,13 +26,46 @@ namespace BillAndTheDog
         public override void Update(float delta)
         {
             location += velocity * delta * speed;
-            recHit.X = (int)(location.X - recDraw.Width / 2);
-            recHit.Y = (int)(location.Y - recDraw.Height / 2);
+            UpdateRec();
+            CheackVertical();
+            CheackHorizontal();
+
             healthBar.Update();
             if (healthBar.IsDead())
             {
                 world.Remove(this);
                 Talk("Dead", Color.Violet);
+            }
+        }
+        private void UpdateRec()
+        {
+            recHit.X = (int)(location.X - recHit.Width / 2);
+            recHit.Y = (int)(location.Y - recHit.Height / 2);
+        }
+        public void CheackVertical()
+        {
+            if(recHit.Y + recHit.Height > Globals.ScreenHeight)
+            {
+                location.Y = Globals.ScreenHeight - recHit.Height/2;
+                UpdateRec();
+            }
+            else if(recHit.Y < 0)
+            {
+                location.Y = recHit.Height / 2;
+                UpdateRec();
+            }
+        }
+        public void CheackHorizontal()
+        {
+            if (recHit.X + recHit.Width > Globals.ScreenWidth)
+            {
+                location.X = Globals.ScreenWidth - recHit.Width / 2;
+                UpdateRec();
+            }
+            else if (recHit.X < 0)
+            {
+                location.X = recHit.Width / 2;
+                UpdateRec();
             }
         }
 
@@ -61,7 +94,13 @@ namespace BillAndTheDog
         public void SetDebugText(int index, string text)
         {
             debugArray[index] = text;
-        }    
+        }
+        
+        public void ClearDebugText()
+        {
+            for (int i = 0; i < debugArray.Length; i++)
+                debugArray[i] = "";
+        } 
 
         public void FireAt(Vector2 position)
         {
@@ -83,12 +122,15 @@ namespace BillAndTheDog
             healthBar.Draw(spriteBatch);
 
             //draw debug Text
-            for (int i = 0; i < debugArray.Length; i++)
+            if (Globals.debug)
             {
-                if (debugArray[i] != null)
+                for (int i = 0; i < debugArray.Length; i++)
                 {
-                    Vector2 temp = Globals.GetTextSize(debugArray[i]);
-                    spriteBatch.DrawString(Globals.font, debugArray[i], location + new Vector2(-temp.X/2, i * 15 + temp.Y + 7), Color.Black);
+                    if (debugArray[i] != null)
+                    {
+                        Vector2 temp = Globals.GetTextSize(debugArray[i]);
+                        spriteBatch.DrawString(Globals.font, debugArray[i], location + new Vector2(-temp.X / 2, i * 15 + temp.Y + 7), Color.Black);
+                    }
                 }
             }
         }

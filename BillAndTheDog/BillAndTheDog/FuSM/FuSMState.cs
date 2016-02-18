@@ -7,8 +7,8 @@ namespace BillAndTheDog.FuSM
 {
     class FuSMState
     {
-        protected FAIController controller;
-        protected float activationLevel;
+        protected FAIController controller;     //The AI controller with all the values.
+        protected float activationLevel;        //The activation level of this state.
 
         public FuSMState(FAIController controller)
         {
@@ -16,14 +16,8 @@ namespace BillAndTheDog.FuSM
             activationLevel = 0;
         }
 
-        public virtual float CalculateActivationLevel()
-        {
-            return 0;
-        }
+        public virtual float CalculateActivationLevel(){ return 0; }
 
-        public virtual void Update(float delta)
-        {
-
-        }
+        public virtual void Update(float delta) { }
     }
 }

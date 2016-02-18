@@ -5,9 +5,9 @@ namespace BillAndTheDog.FSM
 {
     class FSMState
     {
-        protected FAIController controller;
-        private FSMEnum stateType;
-        protected FSMEnum nextState;
+        protected FAIController controller;     //The AI controller
+        private FSMEnum stateType;              //The enum state of this state.
+        protected FSMEnum nextState;            //Set next state to change state.
 
         public FSMState(FSMEnum stateType, FAIController controller)
         {

@@ -1,16 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace BillAndTheDog
 {
     class Bullet : GameObject
     {
-        Entity entity;
-        Vector2 location, direction;
-        float speed, distance;
+        private Entity entity;
+        private Vector2 location, direction;
+        private float speed, distance;
 
         public Bullet(SimulationWorld world, Entity entity, Vector2 location, Vector2 direction) : base(world, new Rectangle(0, 0, 5, 5), new Rectangle(0, 0, 1, 1), Globals.pixel)
         {

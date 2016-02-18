@@ -9,9 +9,9 @@ namespace BillAndTheDog.FSM
 {
     class FSMMachine
     {
-        private FSMState currentState;
-        private FSMState defaultState;
-        private Hashtable states;
+        private FSMState currentState;      //Current FSM state.
+        private FSMState defaultState;      //The Default/Start state.
+        private Hashtable states;           //Using hashtabel to easy get the state from enum name.
 
         public FSMMachine()
         {
@@ -19,9 +19,11 @@ namespace BillAndTheDog.FSM
         }
         public void UpdateMachine(float delta)
         {
+            //If the machine has no states then return;
             if (states.Count == 0)
                 return;
 
+            //If state is null set the default state.
             if (currentState == null)
                 currentState = defaultState;
             if (currentState == null)
@@ -30,14 +32,18 @@ namespace BillAndTheDog.FSM
             FSMEnum oldType = currentState.GetStateType();
             FSMEnum newType = currentState.CheckTransitions();
 
+            //Check if current state wants to change state.
             if(oldType != newType)
             {
+                //Checks if the state exists in this machine.
                 if (TransitionState(newType))
                 {
+                    //Enter the new state
                     currentState = (FSMState)states[newType];
                     currentState.Enter();
                 }
             }
+            //Update the current state.
             currentState.Update(delta);
         }
 
@@ -49,6 +55,7 @@ namespace BillAndTheDog.FSM
             states[state.GetStateType()] = state;
         }
 
+        //Checks if the state exists in this machine.
         public bool TransitionState(FSMEnum stateType){
             return (states[stateType] != null);
         }
